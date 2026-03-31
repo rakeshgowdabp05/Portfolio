@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Rakesh Gowda B P — Java Full Stack Developer. B.E. Computer Science graduating June 2026. Open to software engineering roles."/>
 <title>Rakesh Gowda B P | Java Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 /* ═══════════════════════════════════════
@@ -14,6 +14,9 @@
 :root {
   --bg: #0d1117;
   --bg2: #161b22;
+  --font-main: 'Inter', sans-serif;
+--font-heading: 'Poppins', sans-serif;
+--font-code: 'Fira Code', monospace;
   --bg3: #1c2128;
   --border: #30363d;
   --text: #e6edf3;
@@ -38,7 +41,10 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;font-size:16px;}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background var(--transition),color var(--transition);overflow-x:hidden;}
+body{font-family: var(--font-main);background:var(--bg);color:var(--text);line-height:1.6;transition:background var(--transition),color var(--transition);overflow-x:hidden;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 button{font-family:inherit;cursor:pointer;}
@@ -114,6 +120,28 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-link.gh:hover{border-color:#6e7681;color:var(--text);}
 .hero-link.li:hover{border-color:#0077b5;color:#0077b5;}
 
+/* ===== Hero Social Icons (Theme Aware) ===== */
+
+/* Smooth transition */
+.hero-links .hero-link i {
+  transition: all 0.25s ease;
+}
+
+/* DARK MODE (default) */
+.hero-links .hero-link:nth-child(1) i { color: #fff; }        /* GitHub */
+.hero-links .hero-link:nth-child(3) i { color: #0A66C2; }     /* LinkedIn */
+
+/* LIGHT MODE override */
+[data-theme="light"] .hero-links .hero-link:nth-child(1) i {
+  color: #000; /* GitHub black for light mode */
+}
+
+/* Hover effect */
+.hero-links .hero-link:hover i {
+  color: inherit;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.6s ease 0.35s both;}
 .btn{padding:0.8rem 1.8rem;border-radius:10px;font-size:0.9rem;font-weight:700;letter-spacing:0.02em;display:inline-flex;align-items:center;gap:0.5rem;transition:all var(--transition);border:none;}
 .btn-primary{background:var(--accent);color:#0d1117;box-shadow:0 0 30px rgba(0,217,163,0.25);}
@@ -125,7 +153,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* Hero Visual */
 .hero-visual{display:flex;justify-content:center;align-items:center;animation:fadeUp 0.7s ease 0.2s both;}
-.code-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.5rem;font-family:'Fira Code',monospace;font-size:0.8rem;line-height:1.7;width:100%;max-width:400px;box-shadow:var(--card-shadow);position:relative;}
+.code-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.5rem; font-family: var(--font-code);font-size:0.8rem;line-height:1.7;width:100%;max-width:400px;box-shadow:var(--card-shadow);position:relative;}
 .code-card::before{content:'';position:absolute;inset:0;border-radius:16px;border:1px solid var(--accent);opacity:0;transition:opacity 0.3s;}
 .code-card:hover::before{opacity:0.3;}
 .code-bar{display:flex;gap:6px;margin-bottom:1rem;align-items:center;}
@@ -308,6 +336,33 @@ section{padding:5rem 2rem;}
 .ci-arrow{margin-left:auto;color:var(--muted);transition:color var(--transition);}
 .ci-card:hover .ci-arrow{color:var(--accent);}
 
+/* ===== Contact Icons Brand Colors (Light + Dark Fix) ===== */
+
+/* Email */
+.contact-info-cards .ci-card:nth-child(1) .ci-icon {
+  color: #EA4335;
+}
+
+/* Phone */
+.contact-info-cards .ci-card:nth-child(2) .ci-icon {
+  color: #34A853;
+}
+
+/* LinkedIn */
+.contact-info-cards .ci-card:nth-child(3) .ci-icon {
+  color: #0A66C2;
+}
+
+/* GitHub (Dark Mode default) */
+.contact-info-cards .ci-card:nth-child(4) .ci-icon {
+  color: #ffffff;
+}
+
+/* GitHub fix for Light Mode */
+[data-theme="light"] .contact-info-cards .ci-card:nth-child(4) .ci-icon {
+  color: #24292f; /* GitHub official dark */
+}
+
 /* FORM */
 .contact-form-wrap{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2.5rem;}
 .form-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;}
@@ -377,6 +432,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2r
   .btn{width:100%;justify-content:center;}
   section{padding:4rem 1.25rem;}
   .metrics-grid{grid-template-columns:1fr 1fr;}
+}
+/* ===== Brand Colors (Optimized + Light/Dark Fix) ===== */
+
+/* Smooth transition */
+.footer-links .footer-link i {
+  transition: color 0.3s ease;
+}
+
+/* Default (Dark Mode) */
+.footer-links .footer-link:nth-child(1) i { color: #fff; }       /* GitHub */
+.footer-links .footer-link:nth-child(2) i { color: #0A66C2; }    /* LinkedIn */
+.footer-links .footer-link:nth-child(3) i { color: #EA4335; }    /* Email */
+.footer-links .footer-link:nth-child(4) i { color: #34A853; }    /* Phone */
+
+/* Light Mode Fix (only GitHub changes) */
+[data-theme="light"] .footer-links .footer-link:nth-child(1) i {
+  color: #24292f; /* GitHub official dark */
+}
+
+/* Keep original color on hover */
+.footer-links .footer-link:hover i {
+  color: inherit;
 }
 </style>
 <script src="https://web3forms.com/client/script.js" async defer></script>
