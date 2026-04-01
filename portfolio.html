@@ -500,7 +500,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2r
 ═══════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-bg">
-    <div class="hero-grid"></div>
+  <div class="hero-grid"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
   </div>
@@ -723,6 +723,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2r
           <span class="exp-tag">JavaScript</span>
           <span class="exp-tag">Node.js</span>
           <span class="exp-tag">MySQL</span>
+          <span class="exp-tag">Mongo DB</span>
           <span class="exp-tag">REST API</span>
           <span class="exp-tag">Git</span>
           <span class="exp-tag">CRUD</span>
@@ -871,7 +872,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2r
           <div class="testi-avatar">P</div>
           <div>
             <div class="testi-name">Project Collaborator</div>
-            <div class="testi-role">SSSSMCE, Nelamangala</div>
+            <div class="testi-role">Dr.SMCE, Nelamangala</div>
             <div class="testi-stars">☆ ☆ ☆ ☆ ☆ &nbsp;<span style="color:var(--muted);font-size:0.75rem;">(pending)</span></div>
           </div>
         </div>
@@ -1149,35 +1150,6 @@ if(form) {
   });
   
 }
-
-
-</script>
-<h1>My Portfolio</h1>
-
-<h2>Users Data</h2>
-<div id="output"></div>
-<script>
-fetch("http://localhost:3000/data")
-  .then(res => res.json())
-  .then(data => {
-
-    let html = "";
-
-    data.forEach(user => {
-      html += `
-        <p>
-          <b>ID:</b> ${user.id} <br>
-          <b>Name:</b> ${user.name} <br>
-          <b>Email:</b> ${user.email}
-        </p>
-        <hr>
-      `;
-    });
-
-    document.getElementById("output").innerHTML = html;
-
-  })
-  .catch(err => console.log("Error:", err));
 
   </script>
   <script>
